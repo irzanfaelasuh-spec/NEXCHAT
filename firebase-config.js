@@ -1,13 +1,21 @@
-// Paste your Firebase WEB APP config here. This is public client configuration, not a secret.
-// Never place service-account keys or private TURN credentials in this file.
-export const firebaseConfig = {
-  apiKey: "PASTE_FIREBASE_API_KEY",
-  authDomain: "PASTE_PROJECT_ID.firebaseapp.com",
-  projectId: "PASTE_PROJECT_ID",
-  appId: "PASTE_FIREBASE_APP_ID"
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAf_EZq-LF5I1z71RV3emSiLL6Orbh2I14",
+  authDomain: "nexchat-d67ce.firebaseapp.com",
+  projectId: "nexchat-d67ce",
+  storageBucket: "nexchat-d67ce.firebasestorage.app",
+  messagingSenderId: "512208058388",
+  appId: "1:512208058388:web:96e40733ab71f61fd9cf01",
+  measurementId: "G-C0JBERS5ER"
 };
-export const ICE_SERVERS = [
-  { urls: "stun:stun.l.google.com:19302" }
-  // Add a TURN server from a provider you control for reliable cross-network calls.
-  // Keep TURN credentials short-lived and provisioned securely; do not commit permanent secrets.
-];
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
