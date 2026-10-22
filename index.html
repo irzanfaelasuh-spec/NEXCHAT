@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171c1d"><title>NEXCHAT — Messages that matter</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<div id="app" class="app">
+  <section id="authView" class="auth-wrap">
+    <div class="brand-mark">N<span>×</span></div><p class="eyebrow">PRIVATE MESSAGING</p><h1>Hello.</h1><p class="muted">Create your account here, or sign in to continue.</p>
+    <form id="authForm" class="auth-form">
+      <label>Email<input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+      <label>Display name <span class="muted">(for new accounts)</span><input id="displayName" maxlength="40" autocomplete="nickname" placeholder="Your name"></label>
+      <label>Password<input id="password" type="password" minlength="6" autocomplete="current-password" required placeholder="At least 6 characters"></label>
+      <div class="auth-actions"><button class="primary" type="submit" id="loginBtn">Sign in</button><button class="secondary" type="button" id="signupBtn">Create account</button></div>
+      <p id="authError" class="error" role="alert"></p>
+    </form>
+    <p class="tiny muted">Your password is handled by Firebase Authentication and is never stored in your profile.</p>
+  </section>
+  <section id="chatView" class="chat-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <header class="side-head"><div><div class="eyebrow">NEXCHAT</div><h2>Messages</h2></div><button id="newContactBtn" class="round" aria-label="Add contact">＋</button></header>
+      <input id="contactSearch" class="search" placeholder="Search conversations" aria-label="Search conversations">
+      <div id="contactList" class="contact-list"><div class="empty">Your conversations will appear here.</div></div>
+      <footer class="side-foot"><div id="myAvatar" class="avatar">N</div><div class="me-copy"><strong id="myName">Your account</strong><small id="myNumber"></small></div><button id="profileBtn" class="icon-btn" aria-label="Account info">⚙</button><button id="logoutBtn" class="icon-btn" aria-label="Sign out">↗</button></footer>
+    </aside>
+    <main id="conversation" class="conversation">
+      <div id="welcome" class="welcome"><div class="brand-mark large">N<span>×</span></div><h2>Your space to talk.</h2><p class="muted">Choose a contact or add someone using their NEXCHAT number.</p></div>
+      <header id="chatHeader" class="chat-head hidden"><button id="backBtn" class="icon-btn back" aria-label="Back to chats">←</button><div id="peerAvatar" class="avatar">N</div><div class="peer-copy"><strong id="peerName">Contact</strong><small id="peerStatus">NEXCHAT</small></div><div class="head-actions"><button id="voiceCallBtn" class="icon-btn" aria-label="Voice call">☎</button><button id="videoCallBtn" class="icon-btn" aria-label="Video call">▣</button></div></header>
+      <div id="pinnedBar" class="pinned hidden"></div><div id="messages" class="messages"></div>
+      <form id="composer" class="composer hidden"><textarea id="messageInput" rows="1" maxlength="4000" placeholder="Write a message…" aria-label="Message"></textarea><button class="send-btn" type="submit" aria-label="Send message">↑</button></form>
+    </main>
+  </section>
+</div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button id="closeModal" class="modal-close" aria-label="Close">×</button><h2 id="modalTitle">Add contact</h2><div id="modalContent"></div><p id="modalError" class="error" role="alert"></p></div></div>
+<div id="toast" class="toast" role="status"></div>
+<div id="callOverlay" class="call-overlay hidden"><div class="call-card"><div class="brand-mark">N<span>×</span></div><h2 id="callTitle">Calling…</h2><p id="callStatus" class="muted">Waiting for connection</p><video id="remoteVideo" autoplay playsinline></video><video id="localVideo" autoplay muted playsinline></video><div class="call-controls"><button id="muteBtn">Mute mic</button><button id="cameraBtn">Camera off</button><button id="acceptCallBtn" class="primary hidden">Accept</button><button id="rejectCallBtn" class="danger">End call</button></div></div></div>
+<script type="module" src="./js/main.js"></script>
+</body></html>
